@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+    <input type="text" name="user">
+    <button onclick="adicionar()">Adicionar</button>
+
+    <ul></ul>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    var ul = document.querySelector('ul');
+
+    function adicionar() {
+        
+        carregando();
+
+        var usuario = document.querySelector('input[name=user]');      
+
+        axios.get('https://api.github.com/users/' + usuario.value + '/repos')
+        .then(function(response) {
+            exibeRepos(response.data);
+        })
+        .catch(function(err) {
+            ul.innerHTML = 'Usuario não encontrado';
+        });
+
+    }
+
+    function carregando() {
+
+        ul.innerHTML = "";
+
+        var liElement = document.createElement('li');
+        var textElement = document.createTextNode('carregando...');
+        liElement.appendChild(textElement);
+        ul.appendChild(liElement);
+    }
+
+    function exibeRepos(data) {
+
+        ul.innerHTML = "";
+
+        for (repositorio of data) {
+            console.log(repositorio.name);
+            var text = document.createTextNode(repositorio.name);
+            var li = document.createElement('li');
+            li.appendChild(text);
+            ul.appendChild(li);
+        }        
+    }
+
+</script>
+</body>
+</html>

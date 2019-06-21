@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+
+    </div>
+
+<script>
+
+    var nomes = ["Diego", "Gabriel", "Lucas"];
+
+    var app = document.querySelector('#app');
+    var ul = document.createElement('ul');
+
+    for (nome of nomes) {
+    
+        var text = document.createTextNode(nome);
+        var li = document.createElement('li');
+        li.appendChild(text);
+        ul.appendChild(li);
+    }    
+
+    app.appendChild(ul);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="square()">Clicar</button>
+
+    <div id="app"></div>
+
+
+    <script>
+    function square() {
+        const square = document.createElement('div');
+        square.style.width = '100px';
+        square.style.height = '100px';
+        square.style.backgroundColor = '#FF0000';
+
+        const app = document.querySelector('#app');
+        app.appendChild(square);
+
+
+    }
+    </script>
+
+</body>
+</html>

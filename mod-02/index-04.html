@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+
+    </div>
+
+    <input type="text" name="nome">
+    <button onclick="adicionar()">Adicionar</button>
+
+
+<script>
+
+    var nomes = ["Diego", "Gabriel", "Lucas"];
+
+    var app = document.querySelector('#app');
+    var ul = document.createElement('ul');
+
+    function adicionar() {
+        var input = document.querySelector('input[name=nome]');
+
+        nomes.push(input.value);
+        input.value = '';
+        ul.innerHTML = '';
+
+        exibirNomes();
+
+    }
+
+    function exibirNomes() {
+
+        for (nome of nomes) {
+        
+            var text = document.createTextNode(nome);
+            var li = document.createElement('li');
+            li.appendChild(text);
+            ul.appendChild(li);
+        }    
+
+        app.appendChild(ul);
+    }
+
+    exibirNomes();
+
+</script>
+
+</body>
+</html>
